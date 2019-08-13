@@ -11,6 +11,14 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
+  def completed
+    if @task.completed == true
+      @status = "completed"
+    else
+      @status = "incomplete"
+    end
+  end
+
   def create
     @task = Task.new(task_params)
     @task.save
